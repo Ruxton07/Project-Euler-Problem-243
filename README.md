@@ -9,4 +9,4 @@ My solution to the following Project Euler Problems:
     - Credits:
         - Mr. Bailey
     
-Made on VS Code from 1/10/24 - 1/13/24. 
+Made on VS Code from 1/14/24 - 1/28/24. 
