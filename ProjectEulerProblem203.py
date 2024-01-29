@@ -1,4 +1,5 @@
 from math import factorial
+from time import sleep
 
 potentialPSquares = [4, 9, 25, 49]
 seen = []
