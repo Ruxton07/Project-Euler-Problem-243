@@ -29,38 +29,42 @@ def phi(n) :
 def resilience(d):
     return phi(d)/(d-1)
 
-primes = []
-for i in range(2, 10000):
-    primes.append(i)
-    for t in range(2, i):
-        if i%t==0:
-            primes.pop()
+def main():
+    primes = []
+    for i in range(2, 10000):
+        primes.append(i)
+        for t in range(2, i):
+            if i%t==0:
+                primes.pop()
+                break
+        
+
+    iterate = []
+    iterate.append(primes[0])
+    for k in range(1, len(primes)):
+        iterate.append(iterate[k-1]*primes[k])
+
+
+    print("WANTED " + str(15499/94744))
+    smallestDenom = 1
+    for j in iterate:
+        if resilience(j) < 15499/94744:
+            smallestDenom = j
             break
-    
+        else:
+            print("non-candidate" + str(j) + " | " + str(resilience(j)))
+    newiterate = []
+    newiterate.append(223092870)
+    for u in range(2, 10):
+        newiterate.append(newiterate[0]*u)
+    for o in newiterate:
+        if resilience(o) < 15499/94744:
+            print("nth multiple: " + str(o) + " | " + str(resilience(o)))
+            smallestDenom = o
+            break
+        else:
+            print(str(o) + " | " + str(resilience(o)))
+    print(smallestDenom)
 
-iterate = []
-iterate.append(primes[0])
-for k in range(1, len(primes)):
-    iterate.append(iterate[k-1]*primes[k])
-
-
-print("WANTED " + str(15499/94744))
-smallestDenom = 1
-for j in iterate:
-    if resilience(j) < 15499/94744:
-        smallestDenom = j
-        break
-    else:
-        print("non-candidate" + str(j) + " | " + str(resilience(j)))
-newiterate = []
-newiterate.append(223092870)
-for u in range(2, 10):
-    newiterate.append(newiterate[0]*u)
-for o in newiterate:
-    if resilience(o) < 15499/94744:
-        print("nth multiple: " + str(o) + " | " + str(resilience(o)))
-        smallestDenom = o
-        break
-    else:
-        print(str(o) + " | " + str(resilience(o)))
-print(smallestDenom)
+if __name__ == "__main__":
+    main()
