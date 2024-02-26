@@ -14,7 +14,13 @@ def W(x, y):
         else:
             return
     getCracks([], 0)
-    ncindex = [[i for (i, crackpos2) in enumerate(crackLocations) if crackpos1.isdisjoint(crackpos2)] for crackpos1 in crackLocations]
+    ncindex = []
+    for crack in crackLocations:
+        ncindexline = []
+        for (i, relcrack) in enumerate(crackLocations):
+            if relcrack.isdisjoint(crack):
+                ncindexline.append(i)
+        ncindex.append(ncindexline)
     combs = [1] * len(crackLocations)
     for i in range(1, y):
         newcombs = [sum(combs[k] for k in nci) for nci in ncindex]
