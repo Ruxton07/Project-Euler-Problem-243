@@ -24,6 +24,7 @@ def main():
             if '11' not in binary:
                 count += 1
         return count
+    
     print("Number of possibilities for two 1's in the bit map: " + str(findNonAdjacentOnesPossibilities(2)))
     print("Actual possibilities for two 1's in the bit map: " + str(evaluateBinomialFactorial(82, 2)-81))
 
